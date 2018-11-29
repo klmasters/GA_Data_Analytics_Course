@@ -1,4 +1,4 @@
-1 which counties have the highest sales of whiskey and vodka:
+--which counties have the highest sales of whiskey and vodka:
 
 SELECT county, SUM(total)
 FROM (SELECT county, total, category_name FROM sales WHERE category_name ILIKE '%whisk%'
@@ -7,7 +7,7 @@ group by county
 order by SUM(total) desc
 LIMIT 100;
 
-1.5 playing with columns and numbers etc.
+--playing with columns and numbers etc.
 SELECT county, 
 SUM(CASE WHEN category_name ILIKE '%whisk%' THEN total ELSE 0 END) AS whisk_total,
 SUM(CASE WHEN category_name ILIKE '%vodka%' THEN total ELSE 0 END) AS vodka_total,
@@ -17,7 +17,7 @@ group by county
 
 LIMIT 100;
 
-2 beginnings...
+--Which counties have the highest sale of items higher than 80 proof?
 SELECT category_name, CAST(proof AS decimal)
 FROM products
 WHERE CAST(proof AS decimal) > 80
@@ -26,10 +26,11 @@ WHERE CAST(proof AS decimal) > 80
 Select county, category_name
 
 
-4 what are the top five countries in terms of ml per capita
----------
+--4 what are the top five countries in terms of ml per capita
 
-ELECT 
+-------------------------
+--WITH statements and subqueries
+SELECT 
 category_name,  COUNT(*)
 FROM
     (SELECT item_no, category_name 
@@ -40,7 +41,7 @@ having count(*) > 100
 Order By COUNT(*) desc
 
 
-OR you can use a common table expression using WITH below
+--OR you can use a common table expression using WITH below
 
 WITH w AS (SELECT item_no, category_name 
     FROM products
@@ -53,7 +54,7 @@ group by category_name
 having count(*) > 100
 Order By COUNT(*) desc
 
-Two CTE together
+--Two together
 
 WITH w AS (SELECT item_no, category_name 
     FROM products
@@ -77,7 +78,7 @@ COUNT(*)
 FROM v
 group by category_name
 
-OR as a subquery
+--OR as a subquery
 
 SELECT 
 category_name,
@@ -97,7 +98,7 @@ FROM (SELECT item_no, category_name
     WHERE category_name ILIKE '%vodka%') v
 group by category_name
 
-If you want to order your results!
+--If you want to order your results!
 
 SELECT
 *
