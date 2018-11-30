@@ -1,16 +1,7 @@
 # Course Description
 
-SQL code I wrote from the General Assembly course on Data Analytics Sept - Nov 2018
+The Data Analytics General Assembly course was split into three sections: advanced excel, SQL, and Tableu. The files in this repository are all from the SQL section of the course. We used pgAdmin to access the Iowa 
+Liquor Sales Database for all in class work and the unit 2 project. 
 
-# Data Dictionary
-
-had access to 4 different tables for the project. Table for column names and data types
-
-Sales table
-
-| Column  | Data Type |
-| ------------- | ------------- |
-| date | has date and time stamp |
-| description  | product name  |
-
+Sept 2018 - Nov 2018
 
