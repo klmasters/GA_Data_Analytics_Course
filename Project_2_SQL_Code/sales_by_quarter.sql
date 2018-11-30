@@ -1,5 +1,3 @@
-
-
 SELECT 
   EXTRACT('quarter' FROM date), 
   TO_CHAR(date, 'yyyy'), 
